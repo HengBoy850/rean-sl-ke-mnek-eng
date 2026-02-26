@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Classical Cryptography</title>
+       <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+       
+       <script src="https://kit.fontawesome.com/2872718bc0.js" crossorigin="anonymous"></script>
+       <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+</head>
+ <style>
+    *{
+        scroll-behavior: smooth;
+    }
+    
+      
+    </style>
+<body>
+    
+<header class="bg-cyan-900 text-white fixed w-full top-0 left-0 z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+
+            <!-- LEFT: LOGOS + TEXT -->
+            <div class="flex items-center space-x-4">
+
+                <!-- Combined Logo Wrapper -->
+                <a href="#" class="flex items-center space-x-3 group">
+
+                    <!-- Logo 1 -->
+                    <div class="w-12 h-12 border border-white flex items-center justify-center 
+                                transition duration-200 group-hover:scale-105 group-active:scale-95">
+                        <img src="./img/Rupp_logo.jpg" alt="RUPP"
+                             class="w-10 h-10 object-contain pointer-events-none">
+                    </div>
+
+                    <!-- Logo 2 -->
+                    <div class="w-12 h-12 border border-white flex items-center justify-center 
+                                transition duration-200 group-hover:scale-105 group-active:scale-95">
+                        <img src="./img/ITE.jpg" alt="ITE"
+                             class="w-10 h-10 object-contain pointer-events-none">
+                    </div>
+
+                </a>
+
+                <!-- TEXT -->
+                <div>
+                    <h1 class="font-bold text-lg leading-tight">
+                        ROYAL UNIVERSITY OF PHNOM PENH
+                    </h1>
+                    <p class="text-sm text-gray-200">
+                        Faculty of Engineering
+                    </p>
+                </div>
+            </div>
+
+            <!-- RIGHT: NAVIGATION -->
+            <nav class="flex items-center space-x-8 text-sm font-medium align-items-center">
+
+                <a class="font-bold text-xl hover:text-white/30 backdrop-blur-sm" href="index.html" ><i class="fa-solid fa-house"></i> Home</a>
+
+                <!-- Classical Crypto -->
+                <div class="relative group">
+                    <a href="index1.html" class="font-bold hover:text-white/30 backdrop-blur-sm">
+                        Classical Cryptography <i class="fa-solid fa-angle-down"></i>
+                    </a>
+
+                    <div class="absolute left-0 mt-3 w-64 bg-white text-gray-800 rounded shadow-lg 
+                        opacity-0 invisible 
+                        transform -translate-y-2 
+                        group-hover:opacity-100 group-hover:visible 
+                        group-hover:translate-y-0 
+                        transition-all duration-300 ease-out z-50">
+
+                        <ul class="py-3 px-4 space-y-2 text-sm">
+                            <a class="hover:text-lg hover:text-orange-600" href="#classical">I.I. Caesar Cipher</a><br>
+                            <a class="hover:text-lg hover:text-orange-600" href="#gn">I.II General Shift Cipher</a><br>
+                            <a class="hover:text-lg hover:text-orange-600" href="#af">I.III Affine Cipher</a><br>
+                            <a class="hover:text-lg hover:text-orange-600" href="#tr">I.IV Transposition Cipher</a>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- RSA -->
+                <div class="relative group">
+                    <a href="index2.html" class="font-bold hover:text-white/30 backdrop-blur-sm">
+                        RSA <i class="fa-solid fa-angle-down"></i>
+                    </a>
+
+                    <div class="absolute left-0 mt-3 w-64 bg-white text-gray-800 rounded shadow-lg 
+                        opacity-0 invisible 
+                        transform -translate-y-2 scale-95
+                        group-hover:opacity-100 group-hover:visible 
+                        group-hover:translate-y-0 group-hover:scale-100
+                        transition-all duration-300 ease-out z-50">
+
+
+                        <ul class="py-3 px-4 space-y-2 text-sm">
+                            <a class="hover:text-lg hover:text-orange-600" href="index2.html#rc">II.I. RSA Cryptography</a><br>
+                            <a class="hover:text-lg hover:text-orange-600" href="index2.html#rk">II.I.I RSA Keygen Demo</a><br>
+                            <a class="hover:text-lg hover:text-orange-600" href="index2.htmlre">II.I.II RSA Encryption Demo</a><br>
+                            <a class="hover:text-lg hover:text-orange-600" href="index2.html#rd">II.I.III RSA Decryption Demo</a>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- BUTTON -->
+                
+                
+                <button class="hover:text-xl">
+                    <a href="#classical"
+                    class="relative inline-flex items-center justify-center
+                        bg-orange-900 hover:bg-orange-400
+                        transition duration-300
+                        rounded-xl px-6 py-2
+                        text-white font-bold shadow-lg">
+
+                    <i class="fa-solid fa-rocket mr-2"></i>
+                    Get Start
+
+                    <!-- Ping Notification (Top Right) -->
+                    <span class="absolute -top-1 -right-1 flex size-3">
+                        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"></span>
+                        <span class="relative inline-flex size-3 rounded-full bg-red-500"></span>
+                    </span>
+
+                </a>
+                </button>
+                
+
+            </nav>
+        </div>
+    </header>
+    
+
+   
+
+    <section id="classical" class="mt-0">
+        
+        <div class="bg-white shadow-lg shadow-blue-500/50  h-auto flex flex-col m-[25px] bd rounded-lg text-black mb-10 mt-[140px]">
+            <div class=" h-auto p-[20px] border-black col-span-5 md:col-span-3 lg:col-span-4">
+                <div class="w-[275px] mt-4 mb-10 bg-cyan-800  shadow-blue-500/50 mr-2 ml-2 shadow-lg rounded-xl hover:p-[15px] ">
+                    <h2 id="content-1" class="font-bold text-xl underline ml-6 text-white">I.Classical Cryptography</h2>  
+                </div>
+            
+            <div class="h-auto ">
+                <div class="w-[250px] mt-2 mb-10 bg-cyan-800 shadow-blue-500/50 mr-2 ml-2 shadow-lg rounded-xl hover:p-[15px]">
+                    <h3 id="content-1-1 " class="font-bold text-xl underline pl-10 text-white">I.I. Caesar Cipher</h3>
+                            
+                </div>
+                
+                <div class="">
+                    <section>
+                        <div class="mt-6 bg-olive-200  border-l-4 border-olive-400 rounded-lg mr-8 ml-8 shadow-lg  ">
+                            <p class="italic pl-2">
+                                &emsp;&emsp;"The <b>Caesar Cipher</b> is one of the earliest and simplest known encryption techniques. It is named after <b>Julius Caesar</b>, who used it around 58–50 BCE to protect military communications during his campaigns."
+                            </p>
+                        </div>
+                        
+                    </section>
+                    <br>
+                    <div class="flex flex-col gap-[10px] justify-center items-center mt-[30px]">
+                        <img src="./img/61K6UvP2XxL.png"/>
+                        <br>
+                        <br>
+                        <div class="mt-2 bg-olive-200  border-l-4 border-olive-400 rounded-lg mr-2 ml-2 shadow-lg ">
+                            <p class="ml-3"><b>Image: </b> Caesar Cipher Wheel <b>Sorce: </b><a class=" text-yellow-600 hover:underline" href="https://www.amazon.co.uk/Nicolas-Berne-Caesar-Cipher-Wheel/dp/B013KR53SS" target="_blank" rel="noopener noreferrer">caesarcipher.amazon</a> </p>
+
+                        </div>
+                        <br>
+                        
+                        <div class="mt-6 bg-olive-200  border-l-4 border-olive-400 rounded-lg mr-8 ml-8 shadow-lg  ">
+                            <p>
+                                &emsp;&emsp;According to the Roman writer Suetonius, Caesar encrypted his messages by shifting the letters of the alphabet by a fixed number of positions — typically <b>three places forward</b>.
+                            </p>
+                        </div>
+                        <div class="mt-6  mr-8 ml-8 shadow-lg bg-olive-200  border-l-4 border-olive-400 rounded-lg ">
+                           <p class="ml-2 mr-3"><b>Example</b> (Shift of 3)</p>
+                           <br>
+                           <p class="ml-2"> • A → D</p>
+                           <br>
+                           <p class="ml-2"> • B → E</p>
+                           <br>
+                           <p class="ml-2 mb-3"> • Z → C</p>
+                        </div>
+                        <br>
+                        <div class="mt-6  mr-8 ml-8 shadow-lg bg-olive-200  border-l-4 border-olive-400 rounded-lg w-[200px] ">
+                           <p class="ml-2 mr-3"><b>So :</b> </p>
+                           <br>
+                           
+                           <p class="ml-2 mb-3 mr-3"> HELLO → KHOOR</p>
+                        </div>
+                        <br>
+                        <div class="mt-6 mr-8 ml-8 shadow-lg bg-olive-200  border-l-4 border-olive-400 rounded-lg w-[250px] ">
+                           <p class="ml-2 mr-3"><b>Mathematically</b> : </p>
+                           <br>
+                           
+                           <p class="ml-2 mb-3 mr-3">E(x) = (x+k)\mod 26</p>
+                        </div>
+                        <br>
+                        <div class="w-[250px] mt-2 mb-10 bg-cyan-800 shadow-blue-500/50 mr-2 ml-2 shadow-lg rounded-xl hover:p-[15px]">
+                            <h3 id="content-1-1 " class="font-bold text-xl underline pl-10 text-white"> Caesar Cipher Demo</h3>
+                            
+                        </div>
+                        <p class="text-red-300">Enter your text (Plain text or Cipher text):</p>
+                        <input type="text" id="caesar-input" class="h-[90px]  border-l-4 border-olive-400 rounded-xl p-2 w-[300px] text-cyan-900 " placeholder="Ex: HENG Tii"/>
+                        <div class="flex">
+                            <div class="mr-4">
+                                <button id="caesar-encrypt-btn" class="bg-blue-500 hover:cursor-pointer hover:bg-green-400 text-white rounded-xl p-2 hover:p-[10px] "><i class="fa-solid fa-lock"></i> Encrypt</button>
+                            </div>
+                            <div class="ml-4">
+                                <button id="caesar-decrypt-btn" class="bg-violet-500  hover:cursor-pointer hover:bg-green-400 text-white rounded-xl p-2 hover:p-[10px] "><i class="fa-solid fa-unlock"></i> Decrypt</button>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="font-bold bg-linear-to-r from-cyan-500 to-pink-500 rounded-lg text-violet-600 text-xl hover:p-2 pl-2 p-r2">RESULT:</div>
+                        <div id="caesar-result" class="bg-linear-to-r from-violet-400 to-indigo-500 mt-[20px] text-xl text-xl rounded-lg hover:p-2 text-teal-400 pl-2 pr-2 w-auto"><i class="fa-solid fa-ghost"></i> No Result</div>
+                        <br>
+                        
+                    </div>
+                    <div id="gn" class="w-[270px] mt-2 mb-10 bg-cyan-800 shadow-blue-500/50 mr-2 ml-2 shadow-lg rounded-xl hover:p-[15px]">
+                            <h3 id="content-1-1 " class="font-bold text-xl underline pl-5 text-white">I.II. General Shift Cipher</h3>        
+                    </div>
+                        <section>
+                            <div class="mt-6  mr-8 ml-8 shadow-lg bg-olive-200  border-l-4 border-olive-400 rounded-lg ">
+                                <p class="pl-2">
+                                    &emsp;&emsp;"The <b>General Shift Cipher</b> (also called the <b>Shift Cipher</b>) is a classical substitution cipher in which each letter of the plaintext is shifted by a fixed number of positions in the alphabet. The <b>Caesar Cipher</b> is simply a special case of the general shift cipher with a shift of 3."
+                                </p>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="mt-6  mr-8 ml-8 shadow-lg bg-olive-200  border-l-4 border-olive-400 rounded-lg ">
+                                <p class="ml-2 mr-3 text-yellow-600"><i class="fa-solid fa-triangle-exclamation "></i><b class="text-red-600"> Security</b></p>
+                                <br>
+                                <p class="ml-2"> • There are only 25 possible Keys.</p>
+                                <br>
+                                <p class="ml-2"> • IT can be cracked using brute force.</p>
+                                <br>
+                                <p class="ml-2 mb-3"> • Frequency analysis reveals the shift quickly.</p>
+                                        
+                            </div>
+                        </section>
+                        <div class="flex flex-col gap-[10px] justify-center items-center mt-[30px]">
+                            <div class="w-[280px] mt-2 mb-10 bg-cyan-800 shadow-blue-500/50 mr-2 ml-2 shadow-lg rounded-xl hover:p-[15px]">
+                                <h3 id="content-1-1 " class="font-bold text-xl underline pl-3 text-white"> General Shift Cipher Demo</h3>
+                            </div>
+                            <p class="text-red-300">Enter your text (Plain text or Cipher text):</p>
+                            <input type="text" id="shift-input" class="h-[90px] border-l-4 border-olive-400 rounded-xl p-2 w-[300px] text-cyan-900 " placeholder="Ex: MO&Tii"/>
+                            <br>
+                            <p class="text-red-300">Enter the key (No Need For Brute Force Attack):</p>
+                            <input type="number" id="shift-key" class="border-l-4 border-olive-400 rounded-xl p-2  text-cyan-00 w-[200px]" placeholder="NUM"/>
+                            <div class="flex">
+                                <div class="mr-4">
+                                    <button id="shift-encrypt-btn" class="bg-blue-500 hover:cursor-pointer hover:bg-green-400 text-white rounded-xl p-2 hover:p-[10px] "><i class="fa-solid fa-lock"></i> Encrypt</button>
+                                </div>
+                                <div class="ml-4">
+                                    <button id="shift-decrypt-btn" class="bg-violet-500  hover:cursor-pointer hover:bg-green-400 text-white rounded-xl p-2 hover:p-[10px] "><i class="fa-solid fa-unlock"></i> Decrypt</button>
+                                </div>
+                            </div>
+                            <button id="shift-brute-force-btn" class="bg-pink-500  hover:cursor-pointer hover:bg-green-400 text-white rounded-xl p-2 hover:p-[10px]"><i class="fa-solid fa-hammer"></i> Brute Force Attack</button>
+                            <br>
+                            <div class="font-bold bg-linear-to-r from-cyan-500 to-pink-500 rounded-lg text-violet-600 text-xl hover:p-2 pl-2 p-r2">RESULT:</div>
+                            <div id="shift-result" class="bg-linear-to-r from-violet-400 to-indigo-500 mt-[20px] text-xl text-xl rounded-lg hover:p-2 text-teal-400 pl-2 pr-2 w-auto"><i class="fa-solid fa-ghost"></i> No Result</div>
+                            <br>
+                        </div>
+                </div>
+                <div id="af" class="w-[270px] mt-2 mb-10 bg-cyan-800 shadow-blue-500/50 mr-2 ml-2 shadow-lg rounded-xl hover:p-[15px]">
+                            <h3 id="content-1-1 " class="font-bold text-xl underline pl-5 text-white">I.III. Affine Cipher</h3>        
+                    </div>
+                        <section>
+                            <div class="mt-6 mr-8 ml-8 shadow-lg bg-olive-200  border-l-4 border-olive-400 rounded-lg ">
+                                <p class="pl-2">
+                                    &emsp;&emsp;"The Affine Cipher is a classical substitution cipher that improves upon the simple shift (Caesar) cipher by using two mathematical keys instead of one. It is called “affine” because it uses an affine mathematical function."
+                                </p>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="mt-6  mr-8 ml-8 shadow-lg bg-olive-200  border-l-4 border-olive-400 rounded-lg ">
+                                <p class="ml-2 mr-3 text-red-500"><i class="fa-solid fa-burst"></i><b class="text-back"> The Formula for Encryption</b></p>
+                                <br>
+                                <p class="italic ml-2"> &emsp;E(x) = (ax+b) mod 26</p>
+                                <br>
+                                <p class="ml-2"><b> Where</b></p>
+                                <br>
+                                <p class="ml-2"> • x = numerical value of plaintext letter</p>
+                                <br>
+                                <p class="ml-2"> • a = multiplicative key</p>
+                                <br>
+                                <p class="ml-2"> • b = additive key</p>
+                                <br>
+                                <p class="ml-2 mb-3"> • 26 = number of letters in the alphabet</p>
+                                        
+                            </div>
+                        </section>
+                        <div class="flex flex-col gap-[10px] justify-center items-center mt-[30px]">
+                            <div class="w-[280px] mt-2 mb-10 bg-cyan-800 shadow-blue-500/50 mr-2 ml-2 shadow-lg rounded-xl hover:p-[15px]">
+                                <h3 id="content-1-1 " class="font-bold text-xl underline pl-5 text-white"> Affine Cipher Demo</h3>
+                            </div>
+                            <p class="text-red-300">Enter your text (Plain text or Cipher text):</p>
+                            <input type="text" id="affine-input" class="h-[90px] border-l-4 border-olive-400 rounded-xl p-2 w-[300px] text-cyan-900 " placeholder="Ex: NEARY NA NOR"/>
+                            <br>
+                            <div clss="">
+                                <div>
+                                    <p class="text-red-300">Please enter the key me first<i class="fa-solid fa-face-smile-wink text-yellow-500"></i> :</p>
+                                    <div class="relative w-[200px] group">
+                                        <input type="number" id="affine-key-a" class="border-l-4 border-olive-400 rounded-xl p-2  text-cyan-900 w-[225px]" placeholder="NUM"/><i class="fa-solid fa-heart text-pink-400 absolute right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition duration-300"></i>
+                                    </div>
+                                </div>
+                                <br>
+                                <div>
+                                    <p class="text-red-300">Please enter the key me first<i class="fa-solid fa-face-smile-wink text-yellow-500"></i> :</p>
+                                    <div class="relative w-[200px] group">
+                                        <input type="number" id="affine-key-b" class="border-l-4 border-olive-400 rounded-xl p-2  text-cyan-900 w-[225px]" placeholder="NUM"/><i class="fa-solid fa-heart text-pink-400 absolute right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition duration-300"></i>
+                                    </div>
+                                </div>
+                            </div>    
+                            <div class="flex">
+                                <div class="mr-4">
+                                    <button id="affine-encrypt-btn" class="bg-blue-500 hover:cursor-pointer hover:bg-green-400 text-white rounded-xl p-2 hover:p-[10px] "><i class="fa-solid fa-lock"></i> Encrypt</button>
+                                </div>
+                                <div class="ml-4">
+                                    <button id="affine-decrypt-btn" class="bg-violet-500  hover:cursor-pointer hover:bg-green-400 text-white rounded-xl p-2 hover:p-[10px] "><i class="fa-solid fa-unlock"></i> Decrypt</button>
+                                </div>
+                            </div>
+                            <button id="affine-brute-force-btn" class="bg-pink-500  hover:cursor-pointer hover:bg-green-400 text-white rounded-xl p-2 hover:p-[10px]"><i class="fa-solid fa-hammer"></i> Brute Force Attack</button>
+                            <br>
+                            <div class="font-bold bg-linear-to-r from-cyan-500 to-pink-500 rounded-lg text-violet-600 text-xl hover:p-2 pl-2 p-r2">RESULT:</div>
+                            <div id="affine-result" class="bg-linear-to-r from-violet-400 to-indigo-500 mt-[20px] text-xl text-xl rounded-lg hover:p-2 text-teal-400 pl-2 pr-2 w-auto ml-5"><div class="m-auto"><i class="fa-solid fa-ghost"></i> No Result</div></div>
+                            <br>
+                        </div>
+                </div>
+                <div id="tr" class="w-[270px] mt-2 mb-10 bg-cyan-800 shadow-blue-500/50 mr-2 ml-2 shadow-lg rounded-xl hover:p-[15px]">
+                            <h3 id="content-1-1 " class="font-bold text-xl underline pl-5 text-white">I.IV. Transposition Cipher</h3>        
+                    </div>
+                        <section>
+                            <div class="mt-6  mr-8 ml-8 shadow-lg bg-olive-200  border-l-4 border-olive-400 rounded-lg ">
+                                <p class="pl-2">
+                                    &emsp;&emsp;<b>A Transposition cipher</b><span class="italic"> "is a cryptographic method that rearranges the positions of characters in plaintext according to a specific, regular system to create ciphertext, keeping the original letters intact but scrambled."</span>
+                                </p>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="mt-15  mr-8 ml-8 shadow-lg bg-olive-200  border-l-4 border-olive-400 rounded-lg ">
+                                <p class="ml-10"><b class="text-2xl font-bold">Go To :</b><a href="https://youtu.be/sHsnH1u03e4?si=Mabvnq6UrMlpC5Ta" class="text-red-500 hover:underline"> love.you.time.forever</a></p>
+                            </div>
+                        </section>
+                        <div class="flex flex-col gap-[10px] justify-center items-center mt-[30px]">
+                            <div class="w-[280px] mt-2 mb-10 bg-cyan-800 shadow-blue-500/50 mr-2 ml-2 shadow-lg rounded-xl hover:p-[15px]">
+                                <h3 id="content-1-1 " class="font-bold text-xl underline pl-5 text-white"> Transposition Cipher Demo</h3>
+                            </div>
+                            <p class="text-red-300">Enter your text (Plain text or Cipher text):</p>
+                            <input type="text" id="transposition-input" class="h-[90px] border-l-4 border-olive-400 rounded-xl p-2 w-[300px] text-cyan-900 " placeholder="Ex: PHEARUN"/>
+                            <br>
+                            <div clss="">
+                                <div>
+                                    <p class="text-red-300">Please enter the key<i class="fa-solid fa-face-smile-wink text-yellow-500"></i> :</p>
+                                    <div class="relative w-[200px] group">
+                                        <input type="number" id="transposition-key" class="border-l-4 border-olive-400 rounded-xl p-2  text-cyan-900 w-[200px]" placeholder="NUM"/><i class="fa-solid fa-heart text-pink-400 absolute right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition duration-300"></i>
+                                    </div>
+                                </div>
+                            </div>    
+                            <div class="flex">
+                                <div class="mr-4">
+                                    <button id="transposition-encrypt-btn" class="bg-blue-500 hover:cursor-pointer hover:bg-green-400 text-white rounded-xl p-2 hover:p-[10px] "><i class="fa-solid fa-lock"></i> Encrypt</button>
+                                </div>
+                                <div class="ml-4">
+                                    <button id="transposition-decrypt-btn" class="bg-violet-500  hover:cursor-pointer hover:bg-green-400 text-white rounded-xl p-2 hover:p-[10px] "><i class="fa-solid fa-unlock"></i> Decrypt</button>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="font-bold bg-linear-to-r from-cyan-500 to-pink-500 rounded-lg text-violet-600 text-xl hover:p-2 pl-2 p-r2">RESULT:</div>
+                            <div id="transposition-result" class="bg-linear-to-r from-violet-400 to-indigo-500 mt-[20px] text-xl text-xl rounded-lg hover:p-2 text-teal-400 pl-2 pr-2 w-auto ml-5"><div class="m-auto"><i class="fa-solid fa-ghost"></i> No Result</div></div>
+                            <br>
+                     
+                     
+                        </div>
+                    </div>    
+                </div>
+
+
+            </div>
+           </div>
+        </div>
+    </section>   
+   </div>
+     <section id="footer">
+        
+
+<footer class="bg-gray-800 text-white">
+    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+        <div class="md:flex md:justify-between">
+          <div class="mb-6 md:mb-0">
+              <a href="/img.html" class="flex items-center ">
+                  
+                  <span class="text-heading self-center text-2xl font-semibold whitespace-nowrap"><i class="fa-solid fa-users"></i> Team 5 |</span>
+              </a>
+          </div>
+          <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-heading uppercase">Resources</h2>
+                  <ul class="text-body font-medium">
+                      <li class="mb-4">
+                          <a href="https://www.fi.muni.cz/usr/gruska/crypto17/cr1704.pdf" class="hover:underline">Classical Cryptography</a>
+                      </li>
+                      <li>
+                          <a href="https://en.wikipedia.org/wiki/RSA_cryptosystem" class="hover:underline">RSA</a>
+                      </li>
+                  </ul>
+              </div>
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-heading uppercase">Follow us</h2>
+                  <ul class="text-body font-medium">
+                      <li class="mb-4">
+                          <a href="https://github.com/HengBoy850/rean-sl-ke-mnek-eng.git" class="hover:underline ">Github</a>
+                      </li>
+                      <li class="mb-4">
+                          <a href="img-team.html" class="hover:underline ">Image Team Work To Shell</a>
+                      </li>
+                      
+                  </ul>
+              </div>
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-heading uppercase">Contact Us</h2>
+                  <ul class="text-body font-medium">
+                      <li class="mb-4">
+                          <a href="https://www.facebook.com/share/1CkZL2Yese/?mibextid=wwXIfr" class="hover:underline">Privacy Policy</a>
+                      </li>
+                      <li>                        
+                          
+                          <p> +855 10 962 757</p>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <hr class="my-6 border-default sm:mx-auto lg:my-8" />
+      <div class="sm:flex sm:items-center sm:justify-between">
+          <span class="text-sm text-body sm:text-center">© 2026 <a href="https://encode-decode.com/encryption-functions/" class="hover:underline">MourngNhuMai™</a>. All Rights Reserved.
+          </span>
+          <div class="flex mt-4 sm:justify-center sm:mt-0">
+            <a href="https://www.facebook.com/share/1CkZL2Yese/?mibextid=wwXIfr" class="text-body hover:text-heading bg-blue-600 rounded-sm">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z" clip-rule="evenodd"/></svg>
+                <span class="sr-only">Facebook page</span>
+            </a>
+            <a href="https://discord.gg/8HThwsmW" class="text-body hover:text-heading ms-5 bg-indigo-500 rounded-sm">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M18.942 5.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.586 11.586 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3 17.392 17.392 0 0 0-2.868 11.662 15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.638 10.638 0 0 1-1.706-.83c.143-.106.283-.217.418-.331a11.664 11.664 0 0 0 10.118 0c.137.114.277.225.418.331-.544.328-1.116.606-1.71.832a12.58 12.58 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM8.678 14.813a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.929 1.929 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/></svg>
+                <span class="sr-only">Discord community</span>
+            </a>
+            <a href="#" class="text-body hover:text-heading ms-5">
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.795 10.533 20.68 2h-3.073l-5.255 6.517L7.69 2H1l7.806 10.91L1.47 22h3.074l5.705-7.07L15.31 22H22l-8.205-11.467Zm-2.38 2.95L9.97 11.464 4.36 3.627h2.31l4.528 6.317 1.443 2.02 6.018 8.409h-2.31l-4.934-6.89Z"/></svg>
+            <span class="sr-only">Twitter page</span>
+            </a>
+            <a href="https://github.com/HengBoy850/rean-sl-ke-mnek-eng.git" class="text-body hover:text-heading ms-5">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z" clip-rule="evenodd"/></svg>
+                <span class="sr-only">GitHub account</span>
+            </a>
+            <a href="#" class="text-body hover:text-heading ms-5 bg-fuchsia-300 text-fuchsia-800 rounded-lg">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2a10 10 0 1 0 10 10A10.009 10.009 0 0 0 12 2Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.093 20.093 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM10 3.707a8.82 8.82 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.755 45.755 0 0 0 10 3.707Zm-6.358 6.555a8.57 8.57 0 0 1 4.73-5.981 53.99 53.99 0 0 1 3.168 4.941 32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.641 31.641 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM12 20.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 15.113 13a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z" clip-rule="evenodd"/></svg>
+                <span class="sr-only">Dribbble account</span>
+            </a>
+          </div>
+      </div>
+    </div>
+</footer>
+
+
+    </section>
+
+
+
+
+   <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>   
+</body>
+
+<script src="caesar-chiper-1.js"></script>
+<script src="shift-chipher.js"></script>
+<script src="affine-cipher.js"></script>
+<script src="transposition-cipher.js"></script>
+</html>
