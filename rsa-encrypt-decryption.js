@@ -91,16 +91,22 @@ document.getElementById("rsa-encrypt-btn").addEventListener("click", function ()
 
     for (let i = 0; i < text.length; i++) {
 
-        if (text[i] === " ") {
-            result.push(" ");
-            continue;
-        }
-
-        let m = text.charCodeAt(i);
-        let c = modPow(m, e, n);
-
-        result.push(c);
+    if (text[i] === " ") {
+        result.push(" ");
+        continue;
     }
+
+    let m = text.charCodeAt(i);
+
+    if (m >= n) {
+        document.getElementById("rsa-encrypt-result").innerHTML =
+        `<i class="fa-solid fa-triangle-exclamation text-red-500"></i> n must be larger than ASCII values!`;
+        return;
+    }
+
+    let c = modPow(m, e, n);
+    result.push(c);
+}
 
     document.getElementById("rsa-encrypt-result").innerHTML =
     `<i class="fa-solid fa-lock text-blue-300"></i> Cipher: <br> ${result.join(" ")}`;
@@ -125,11 +131,14 @@ document.getElementById("rsa-decrypt-btn").addEventListener("click", function ()
 
     cipher.forEach(num => {
 
-        if (num === "") return;
+    if (num === "") {
+        result += " ";
+        return;
+    }
 
-        let m = modPow(parseInt(num), d, n);
-        result += String.fromCharCode(m);
-    });
+    let m = modPow(parseInt(num), d, n);
+    result += String.fromCharCode(m);
+});
 
     document.getElementById("rsa-decrypt-result").innerHTML =
     `<i class="fa-solid fa-unlock text-green-300"></i> Plain Text: <br> ${result}`;
