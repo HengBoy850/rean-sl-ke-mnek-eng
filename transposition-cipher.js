@@ -1,90 +1,95 @@
-// ===== Transposition Cipher Functions =====
-
-function transpositionCipherEncrypt(plaintext, key) {
-    const numCols = key.length;
-    const numRows = Math.ceil(plaintext.length / numCols);
-    const paddedPlaintext = plaintext.padEnd(numRows * numCols, ' ');
-    const grid = [];
-
-    // Fill grid row by row
-    for (let i = 0; i < numRows; i++) {
-        grid.push(paddedPlaintext.slice(i * numCols, (i + 1) * numCols));
-    }
-
-    // Sort key
-    const sortedKey = Array.from(key)
+/* ---------- COLUMN ORDER FUNCTION ---------- */
+function getOrder(key) {
+    return key
+        .split('')
         .map((char, index) => ({ char, index }))
-        .sort((a, b) => a.char.localeCompare(b.char));
-
-    const ciphertext = sortedKey
-        .map(({ index }) => grid.map(row => row[index]).join(''))
-        .join('');
-
-    return ciphertext.trim();
+        .sort((a, b) => a.char.localeCompare(b.char))
+        .map(obj => obj.index);
 }
 
-function transpositionCipherDecrypt(ciphertext, key) {
-    const numCols = key.length;
-    const numRows = Math.ceil(ciphertext.length / numCols);
-    const paddedCiphertext = ciphertext.padEnd(numRows * numCols, ' ');
-    const grid = Array.from({ length: numRows }, () => Array(numCols).fill(' '));
+/* ---------- ENCRYPT ---------- */
+document.getElementById("transposition-encrypt-btn").addEventListener("click", function() {
+    let text = document.getElementById("transposition-input").value.replace(/\s/g, "").toUpperCase();
+    let key = document.getElementById("transposition-key").value.toUpperCase();
 
-    const sortedKey = Array.from(key)
-        .map((char, index) => ({ char, index }))
-        .sort((a, b) => a.char.localeCompare(b.char));
+    if (!text || !key) {
+        document.getElementById("transposition-result").innerHTML = "Please enter text and keyword";
+        return;
+    }
 
-    const sortedIndices = sortedKey.map(({ index }) => index);
+    let cols = key.length;
+    let rows = Math.ceil(text.length / cols);
 
-    let charIndex = 0;
+    // padding
+    while (text.length < rows * cols) {
+        text += "X";
+    }
 
-    // Fill grid column by column
-    for (let i = 0; i < numCols; i++) {
-        const colIndex = sortedIndices[i];
-        for (let j = 0; j < numRows; j++) {
-            if (charIndex < paddedCiphertext.length) {
-                grid[j][colIndex] = paddedCiphertext[charIndex++];
+    // build matrix
+    let matrix = [];
+    let index = 0;
+
+    for (let r = 0; r < rows; r++) {
+        matrix[r] = [];
+        for (let c = 0; c < cols; c++) {
+            matrix[r][c] = text[index++];
+        }
+    }
+
+    // column order
+    let order = getOrder(key);
+
+    let cipher = "";
+
+    // read columns based on sorted key
+    for (let i = 0; i < cols; i++) {
+        let col = order[i];
+        for (let r = 0; r < rows; r++) {
+            cipher += matrix[r][col];
+        }
+    }
+
+    document.getElementById("transposition-result").innerHTML = cipher;
+});
+
+/* ---------- DECRYPT ---------- */
+document.getElementById("transposition-decrypt-btn").addEventListener("click", function() {
+    let cipher = document.getElementById("transposition-input").value.replace(/\s/g, "").toUpperCase();
+    let key = document.getElementById("transposition-key").value.toUpperCase();
+
+    if (!cipher || !key) {
+        document.getElementById("transposition-result").innerHTML = "Please enter text and keyword";
+        return;
+    }
+
+    let cols = key.length;
+    let rows = Math.ceil(cipher.length / cols);
+
+    let order = getOrder(key);
+
+    let matrix = Array.from({ length: rows }, () => Array(cols));
+
+    let index = 0;
+
+    // rebuild matrix column-by-column
+    for (let i = 0; i < cols; i++) {
+        let col = order[i];
+        for (let r = 0; r < rows; r++) {
+            if (index < cipher.length) {
+                matrix[r][col] = cipher[index++];
             }
         }
     }
 
-    return grid.map(row => row.join('')).join('').trim();
-}
-
-// ===== Button Event Listeners =====
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const inputText = document.getElementById("transposition-input");
-    const keyInput = document.getElementById("transposition-key");
-    const resultDiv = document.getElementById("transposition-result");
-
-    const encryptBtn = document.getElementById("transposition-encrypt-btn");
-    const decryptBtn = document.getElementById("transposition-decrypt-btn");
-
-    encryptBtn.addEventListener("click", function () {
-        const text = inputText.value.trim();
-        const key = keyInput.value.trim();
-
-        if (!text || !key) {
-            resultDiv.innerHTML = "<div class='m-auto text-red-200'>⚠ Please enter text and key</div>";
-            return;
+    // read rows to get plaintext
+    let resultText = "";
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+            if (matrix[r][c] !== undefined) {
+                resultText += matrix[r][c];
+            }
         }
+    }
 
-        const encrypted = transpositionCipherEncrypt(text, key);
-        resultDiv.innerHTML = `<div class="m-auto">${encrypted}</div>`;
-    });
-
-    decryptBtn.addEventListener("click", function () {
-        const text = inputText.value.trim();
-        const key = keyInput.value.trim();
-
-        if (!text || !key) {
-            resultDiv.innerHTML = "<div class='m-auto text-red-200'>⚠ Please enter text and key</div>";
-            return;
-        }
-
-        const decrypted = transpositionCipherDecrypt(text, key);
-        resultDiv.innerHTML = `<div class="m-auto">${decrypted}</div>`;
-    });
-
+    document.getElementById("transposition-result").innerHTML = resultText;
 });
