@@ -163,8 +163,8 @@
                         <img src="./img/61K6UvP2XxL.png"/>
                         <br>
                         <br>
-                        <div class="mt-2 bg-olive-200  border-l-4 border-olive-400 rounded-lg mr-2 ml-2 shadow-lg ">
-                            <p class="ml-3 pr-[30px] pt-[30px] pb-[30px]"><b>Image: </b> Caesar Cipher Wheel <b>Sorce: </b><a class=" text-yellow-600 hover:underline" href="https://www.amazon.co.uk/Nicolas-Berne-Caesar-Cipher-Wheel/dp/B013KR53SS" target="_blank" rel="noopener noreferrer">caesarcipher.amazon</a> </p>
+                        <div class="mt-2 bg-olive-200  border-l-4 border-olive-400 rounded-lg mr-2 ml-2 shadow-lg w-[700px]">
+                            <p class="ml-3 pr-[20px] pt-[30px] pb-[30px] pl-[120px]"><b>Image: </b> Caesar Cipher Wheel <b>Sorce: </b><a class=" text-yellow-600 hover:underline" href="https://www.amazon.co.uk/Nicolas-Berne-Caesar-Cipher-Wheel/dp/B013KR53SS" target="_blank" rel="noopener noreferrer">caesarcipher.amazon</a> </p>
 
                         </div>
                         <br>
@@ -175,35 +175,42 @@
                             </p>
                         </div>
                         <div class="mt-6  mr-8 ml-8 shadow-lg bg-olive-200  border-l-4 border-olive-400 rounded-lg ">
-                           <p class="ml-2 mr-3"><b>Example</b> (Shift of 3)</p>
+                           <div class="w-[550px] pt-[15px] pb-[15px] pl-[15px] ">
+                            <p class="ml-2 mr-3"><b>Example</b> (Shift of 3)</p>
                            <br>
                            <p class="ml-2"> • A → D</p>
                            <br>
                            <p class="ml-2"> • B → E</p>
                            <br>
                            <p class="ml-2 mb-3"> • Z → C</p>
+                           </div>
                         </div>
                         <br>
-                        <div class="mt-6  mr-8 ml-8 shadow-lg bg-olive-200  border-l-4 border-olive-400 rounded-lg w-[200px] ">
-                           <p class="ml-2 mr-3"><b>So :</b> </p>
+                        <div class="mt-6  mr-8 ml-8 shadow-lg bg-olive-200  border-l-4 border-olive-400 rounded-lg  ">
+                           <div class="w-[550px] pt-[15px] pb-[15px] pl-[15px]">
+                            <p class="ml-2 mr-3"><b>So :</b> </p>
                            <br>
                            
                            <p class="ml-2 mb-3 mr-3"> HELLO → KHOOR</p>
+                           </div>
                         </div>
                         <br>
-                        <div class="mt-6 mr-8 ml-8 shadow-lg bg-olive-200  border-l-4 border-olive-400 rounded-lg w-[250px] ">
-                           <p class="ml-2 mr-3"><b>Mathematically</b> : </p>
-                           <br>
+                        <div class="mt-6 mr-8 ml-8 shadow-lg bg-olive-200  border-l-4 border-olive-400 rounded-lg  ">
+                           <div class="w-[550px] pt-[15px] pb-[15px] pl-[15px]">
+                                <p class="ml-2 mr-3"><b>Mathematically</b> : </p>
+                                <br>
                            
-                           <p class="ml-2 mb-3 mr-3">E(x) = (x+k)\mod 26</p>
+                            <p class="ml-2 mb-3 mr-3">E(x) = (x+k)\mod 26</p>
+                           </div>
                         </div>
                         <br>
                         <div class="w-[250px] mt-2 mb-10 bg-cyan-800 shadow-blue-500/50 mr-2 ml-2 shadow-lg rounded-xl hover:p-[15px]">
                             <h3 id="content-1-1 " class="font-bold text-xl underline pl-10 text-white pt-[10px] pb-[10px]"> Caesar Cipher Demo</h3>
                             
                         </div>
-                        <p class="text-red-300">Enter your text (Plain text or Cipher text):</p>
-                        <input type="text" id="caesar-input" class="h-[90px]  border-l-4 border-olive-400 rounded-xl p-2 w-[300px] text-cyan-900 " placeholder="Ex: HENG Tii"/>
+                        <div class="flex flex-col gap-[10px] justify-center items-center mt-[30px] bg-cyan-800   rounded-lg mr-8 ml-8 shadow-lg w-[800px] mb-[40px]">
+                            <p class="text-red-300 mt-[20px]">Enter your text (Plain text or Cipher text):</p>
+                        <input type="text" id="caesar-input" class="h-[90px]  border-l-4 border-olive-400 rounded-xl p-4 w-[600px] text-cyan-900 " placeholder="Ex: HENG Tii"/>
                         <div class="flex">
                             <div class="mr-4">
                                 <button id="caesar-encrypt-btn" class="bg-blue-500 hover:cursor-pointer hover:bg-green-400 text-white rounded-xl p-2 hover:p-[10px] "><i class="fa-solid fa-lock"></i> Encrypt</button>
@@ -216,6 +223,7 @@
                         <div class="font-bold bg-linear-to-r from-cyan-500 to-pink-500 rounded-lg text-violet-600 text-xl hover:p-2 pl-2 p-r2">RESULT:</div>
                         <div id="caesar-result" class="bg-linear-to-r from-violet-400 to-indigo-500 mt-[20px] text-xl text-xl rounded-lg hover:p-2 text-teal-400 w-auto pl-[10px] pr-[10px] pt-[10px] pb-[10px]"><i class="fa-solid fa-ghost"></i> No Result</div>
                         <br>
+                        </div>
                         
                     </div>
                     <div id="gn" class="w-[270px] mt-2 mb-10 bg-cyan-800 shadow-blue-500/50 mr-2 ml-2 shadow-lg rounded-xl hover:p-[15px]">
@@ -229,7 +237,7 @@
                             </div>
                         </section>
                         <section>
-                            <div class="mt-6  mr-8 ml-8 shadow-lg bg-olive-200  border-l-4 border-olive-400 rounded-lg pr-[30px] pt-[30px] pb-[30px]">
+                            <div class="mt-6  mr-8 ml-8 shadow-lg bg-olive-200  border-l-4 border-olive-400 rounded-lg pr-[30px] pt-[30px] pb-[30px] pl-[30px]">
                                 <p class="ml-2 mr-3 text-yellow-600"><i class="fa-solid fa-triangle-exclamation "></i><b class="text-red-600"> Security</b></p>
                                 <br>
                                 <p class="ml-2"> • There are only 25 possible Keys.</p>
@@ -240,12 +248,13 @@
                                         
                             </div>
                         </section>
-                        <div class="flex flex-col gap-[10px] justify-center items-center mt-[30px]">
+                        <div class="flex flex-col gap-[10px] justify-center items-center mt-[30px] mb-[40px]">
                             <div class="w-[280px] mt-2 mb-10 bg-cyan-800 shadow-blue-500/50 mr-2 ml-2 shadow-lg rounded-xl hover:p-[15px]">
                                 <h3 id="content-1-1 " class="font-bold text-xl underline pl-3 text-white pt-[10px] pb-[10px]"> General Shift Cipher Demo</h3>
                             </div>
-                            <p class="text-red-300">Enter your text (Plain text or Cipher text):</p>
-                            <input type="text" id="shift-input" class="h-[90px] border-l-4 border-olive-400 rounded-xl p-2 w-[300px] text-cyan-900 " placeholder="Ex: MO&Tii"/>
+                            <div class="flex flex-col gap-[10px] justify-center items-center mt-[30px] bg-cyan-800   rounded-lg mr-8 ml-8 shadow-lg w-[900px]">
+                                <p class="text-red-300 pt-[20px]">Enter your text (Plain text or Cipher text):</p>
+                            <input type="text" id="shift-input" class="h-[90px] border-l-4 border-olive-400 rounded-xl p-4 w-[600px] text-cyan-900 " placeholder="Ex: MO&Tii"/>
                             <br>
                             <p class="text-red-300">Enter the key (No Need For Brute Force Attack):</p>
                             <input type="number" id="shift-key" class="border-l-4 border-olive-400 rounded-xl p-2  text-cyan-00 w-[200px]" placeholder="NUM"/>
@@ -257,11 +266,13 @@
                                     <button id="shift-decrypt-btn" class="bg-violet-500  hover:cursor-pointer hover:bg-green-400 text-white rounded-xl p-2 hover:p-[10px] "><i class="fa-solid fa-unlock"></i> Decrypt</button>
                                 </div>
                             </div>
-                            <button id="shift-brute-force-btn" class="bg-pink-500  hover:cursor-pointer hover:bg-green-400 text-white rounded-xl p-2 hover:p-[10px]"><i class="fa-solid fa-hammer"></i> Brute Force Attack</button>
+                            <button id="shift-brute-force-btn" class="bg-orange-500  hover:cursor-pointer hover:bg-green-400 text-white rounded-xl p-2 hover:p-[10px]"><i class="fa-solid fa-hammer"></i> Brute Force Attack</button>
                             <br>
                             <div class="font-bold bg-linear-to-r from-cyan-500 to-pink-500 rounded-lg text-violet-600 text-xl hover:p-2 pl-2 p-r2">RESULT:</div>
                             <div id="shift-result" class="bg-linear-to-r from-violet-400 to-indigo-500 mt-[20px] text-xl text-xl rounded-lg hover:p-2 text-teal-400 w-auto pl-[10px] pr-[10px] pt-[10px] pb-[10px]"><i class="fa-solid fa-ghost"></i> No Result</div>
                             <br>
+                            </div>
+                            
                         </div>
                 </div>
                 <div id="af" class="w-[270px] mt-2 mb-10 bg-cyan-800 shadow-blue-500/50 mr-2 ml-2 shadow-lg rounded-xl hover:p-[15px]">
@@ -275,7 +286,7 @@
                             </div>
                         </section>
                         <section>
-                            <div class="mt-6  mr-8 ml-8 shadow-lg bg-olive-200  border-l-4 border-olive-400 rounded-lg pr-[30px] pt-[30px] pb-[30px]">
+                            <div class="mt-6  mr-8 ml-8 shadow-lg bg-olive-200  border-l-4 border-olive-400 rounded-lg pr-[30px] pt-[30px] pb-[30px] pl-[30px]">
                                 <p class="ml-2 mr-3 text-red-500"><i class="fa-solid fa-burst"></i><b class="text-back"> The Formula for Encryption</b></p>
                                 <br>
                                 <p class="italic ml-2"> &emsp;E(x) = (ax+b) mod 26</p>
@@ -292,12 +303,13 @@
                                         
                             </div>
                         </section>
-                        <div class="flex flex-col gap-[10px] justify-center items-center mt-[30px]">
+                        <div class="flex flex-col gap-[10px] justify-center items-center mt-[30px] mb-[40px]">
                             <div class="w-[280px] mt-2 mb-10 bg-cyan-800 shadow-blue-500/50 mr-2 ml-2 shadow-lg rounded-xl hover:p-[15px]">
                                 <h3 id="content-1-1 " class="font-bold text-xl underline pl-10 text-white pt-[10px] pb-[10px]"> Affine Cipher Demo</h3>
                             </div>
-                            <p class="text-red-300">Enter your text (Plain text or Cipher text):</p>
-                            <input type="text" id="affine-input" class="h-[90px] border-l-4 border-olive-400 rounded-xl p-2 w-[300px] text-cyan-900 " placeholder="Ex: NEARY NA NOR"/>
+                            <div class="flex flex-col gap-[10px] justify-center items-center mt-[30px] bg-cyan-800   rounded-lg mr-8 ml-8 shadow-lg w-[900px]">
+                                <p class="text-red-300 pt-[20px]">Enter your text (Plain text or Cipher text):</p>
+                            <input type="text" id="affine-input" class="h-[90px] border-l-4 border-olive-400 rounded-xl p-4 w-[600px] text-cyan-900 " placeholder="Ex: NEARY NA NOR"/>
                             <br>
                             <div clss="">
                                 <div>
@@ -322,11 +334,13 @@
                                     <button id="affine-decrypt-btn" class="bg-violet-500  hover:cursor-pointer hover:bg-green-400 text-white rounded-xl p-2 hover:p-[10px] "><i class="fa-solid fa-unlock"></i> Decrypt</button>
                                 </div>
                             </div>
-                            <button id="affine-brute-force-btn" class="bg-pink-500  hover:cursor-pointer hover:bg-green-400 text-white rounded-xl p-2 hover:p-[10px]"><i class="fa-solid fa-hammer"></i> Brute Force Attack</button>
+                            <button id="affine-brute-force-btn" class="bg-orange-500  hover:cursor-pointer hover:bg-green-400 text-white rounded-xl p-2 hover:p-[10px]"><i class="fa-solid fa-hammer"></i> Brute Force Attack</button>
                             <br>
                             <div class="font-bold bg-linear-to-r from-cyan-500 to-pink-500 rounded-lg text-violet-600 text-xl hover:p-2 pl-2 p-r2">RESULT:</div>
-                            <div id="affine-result" class="bg-linear-to-r from-violet-400 to-indigo-500 mt-[20px] text-xl text-xl rounded-lg hover:p-2 text-teal-400 w-auto ml-5 pl-[10px] pr-[10px] pt-[10px] pb-[10px]"><div class="m-auto"><i class="fa-solid fa-ghost"></i> No Result</div></div>
+                            <div id="affine-result" class="bg-linear-to-r from-violet-400 to-indigo-500 mt-[20px] text-xl text-xl rounded-lg hover:p-2 text-teal-400 w-auto ml-1 pl-[10px] pr-[10px] pt-[10px] pb-[10px]"><div class="m-auto"><i class="fa-solid fa-ghost"></i> No Result</div></div>
                             <br>
+                            </div>
+                            
                         </div>
                 </div>
                 <div id="tr" class="w-[300px] mt-2 mb-10 bg-cyan-800 shadow-blue-500/50 mr-2 ml-2 shadow-lg rounded-xl hover:p-[15px] ">
@@ -344,15 +358,16 @@
                                 <p class="ml-10 pr-[30px] pt-[30px] pb-[30px]"><b class="text-2xl font-bold">Go To :</b><a href="https://youtu.be/sHsnH1u03e4?si=Mabvnq6UrMlpC5Ta" class="text-red-500 hover:underline"> love.you.time.forever</a></p>
                             </div>
                         </section>
-                        <div class="flex flex-col gap-[10px] justify-center items-center mt-[30px]">
+                        <div class="flex flex-col gap-[10px] justify-center items-center mt-[30px] mb-[40px]">
                             <div class="w-[300px] mt-2 mb-10 bg-cyan-800 shadow-blue-500/50 mr-2 ml-2 shadow-lg rounded-xl hover:p-[15px]">
                                 <h3 id="content-1-1 " class="font-bold text-xl underline pl-5 text-white pt-[10px] pb-[10px]"> Transposition Cipher Demo</h3>
                             </div>
-                            <p class="text-red-300">Enter your text (Plain text or Cipher text):</p>
-                            <input type="text" id="transposition-input" class="h-[90px] border-l-4 border-olive-400 rounded-xl p-2 w-[300px] text-cyan-900 " placeholder="Ex: PHEARUN"/>
+                            <div class="flex flex-col gap-[10px] justify-center items-center mt-[30px] bg-cyan-800   rounded-lg mr-8 ml-8 shadow-lg w-[800px]">
+                                <p class="text-red-300 pt-[20px]">Enter your text (Plain text or Cipher text):</p>
+                            <input type="text" id="transposition-input" class="h-[90px] border-l-4 border-olive-400 rounded-xl p-4 w-[600px] text-cyan-900 " placeholder="Ex: PHEARUN"/>
                             <br>
                             <p class="text-red-300">Enter your keyword (Keyword):</p>
-                            <input type="text" id="transposition-key" class="h-[90px] border-l-4 border-olive-400 rounded-xl p-2 w-[300px] text-cyan-900 " placeholder="Ex: keyword"/>
+                            <input type="text" id="transposition-key" class="h-[90px] border-l-4 border-olive-400 rounded-xl p-4 w-[600px] text-cyan-900 " placeholder="Ex: keyword"/>
                             <br>
                                
                             <div class="flex">
@@ -365,8 +380,10 @@
                             </div>
                             <br>
                             <div class="font-bold bg-linear-to-r from-cyan-500 to-pink-500 rounded-lg text-violet-600 text-xl hover:p-2 pl-2 p-r2">RESULT:</div>
-                            <div id="transposition-result" class="bg-linear-to-r from-violet-400 to-indigo-500 mt-[20px] text-xl text-xl rounded-lg hover:p-2 text-teal-400 w-auto ml-5 pl-[10px] pr-[10px] pt-[10px] pb-[10px]"><div class="m-auto"><i class="fa-solid fa-ghost"></i> No Result</div></div>
+                            <div id="transposition-result" class="bg-linear-to-r from-violet-400 to-indigo-500 mt-[20px] text-xl text-xl rounded-lg hover:p-2 text-teal-400 w-auto ml-1 pl-[10px] pr-[10px] pt-[10px] pb-[10px]"><div class="m-auto"><i class="fa-solid fa-ghost"></i> No Result</div></div>
                             <br>
+                            </div>
+                            
                      
                      
                         </div>
